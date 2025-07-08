@@ -11,7 +11,7 @@ class CountryUI:
         self._load_countries()
 
     def _build_ui(self):
-        cols = ('Código', 'Nombre', 'Población')
+        cols = ('Código', 'Nombre', 'Población', 'Capital', 'Población Capital')
         self.tree = ttk.Treeview(self.root, columns=cols, show='headings')
         for col in cols:
             self.tree.heading(col, text=col)
