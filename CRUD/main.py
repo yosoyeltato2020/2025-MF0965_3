@@ -1,7 +1,7 @@
 import tkinter as tk
-from ui import SakilaUI
+from ui import CountryUI
 
 if __name__ == '__main__':
     root = tk.Tk()
-    SakilaUI(root)
+    CountryUI(root)
     root.mainloop()

@@ -1,7 +1,7 @@
 from persistence import CustomerRepository
 
 
-class CustomerService:
+class CountryService:
     def __init__(self):
         self.repo = CustomerRepository()
 
