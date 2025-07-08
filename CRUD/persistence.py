@@ -20,7 +20,7 @@ class CountryRepository:
         code, name, population, capital_name, capital_population = country_data
         conn = get_connection()
         cursor = conn.cursor()
-        # Insertar o buscar la ciudad capital
+    
         cursor.execute("SELECT ID FROM city WHERE Name = %s AND Population = %s LIMIT 1", (capital_name, capital_population))
         city = cursor.fetchone()
         if city:
@@ -28,7 +28,7 @@ class CountryRepository:
         else:
             cursor.execute("INSERT INTO city (Name, Population, CountryCode) VALUES (%s, %s, %s)", (capital_name, capital_population, code))
             capital_id = cursor.lastrowid
-        # Insertar el país
+        
         cursor.execute(
             "INSERT INTO country (Code, Name, Population, Capital) VALUES (%s, %s, %s, %s)",
             (code, name, population, capital_id)
@@ -41,7 +41,7 @@ class CountryRepository:
         code, name, population, capital_name, capital_population = country_data
         conn = get_connection()
         cursor = conn.cursor()
-        # Insertar o buscar la ciudad capital
+        
         cursor.execute("SELECT ID FROM city WHERE Name = %s AND Population = %s LIMIT 1", (capital_name, capital_population))
         city = cursor.fetchone()
         if city:
@@ -49,7 +49,7 @@ class CountryRepository:
         else:
             cursor.execute("INSERT INTO city (Name, Population, CountryCode) VALUES (%s, %s, %s)", (capital_name, capital_population, code))
             capital_id = cursor.lastrowid
-        # Actualizar el país
+        
         cursor.execute(
             "UPDATE country SET Name=%s, Population=%s, Capital=%s WHERE Code=%s",
             (name, population, capital_id, code)
